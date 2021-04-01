@@ -1,44 +1,44 @@
 <template>
   <div id="app">
     <div class="app-container">
-      <img alt="Vue logo" src="./assets/primevue-logo.png">
-      <HelloWorld msg="Welcome to Your PrimeVue App"/>
+      <img alt="Vue logo" src="./assets/primevue-logo.png" />
+      <HelloWorld msg="Welcome to Your PrimeVue App" />
       <form @submit.prevent="greet">
-        <InputText type="text" v-model="text"/>
-        <Button type="submit" label="Submit"/>
-        <h3>{{message}}</h3>
+        <InputText type="text" v-model="text" />
+        <Button type="submit" label="Submit" />
+        <h3>{{ message }}</h3>
       </form>
     </div>
 
-    <Toast/>
+    <Toast />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-    data() {
-        return {
-            message: null,
-            text: null
-        }
+  data() {
+    return {
+      message: null,
+      text: null,
+    };
+  },
+  methods: {
+    greet() {
+      this.$toast.add({ severity: "info", summary: "Hello " + this.text });
+      this.message = "Hello " + this.text;
     },
-    methods: {
-        greet() {
-            this.$toast.add({severity: 'info', summary: 'Hello '  + this.text});
-            this.message = 'Hello ' + this.text;
-        }
-    },
-    components: {
-      HelloWorld
-    }
-}
+  },
+  components: {
+    HelloWorld,
+  },
+};
 </script>
 
 <style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -50,7 +50,7 @@ export default {
 }
 
 body #app .p-button {
-  margin-left: .2em;
+  margin-left: 0.2em;
 }
 
 form {
